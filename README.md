@@ -1,4 +1,4 @@
-```markdown
+
 # Mathspace Question Solver
 
 A tool that automatically extracts math questions from Mathspace and uses Google's Gemini AI to provide detailed step-by-step solutions.
