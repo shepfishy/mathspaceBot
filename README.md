@@ -1,22 +1,19 @@
 
-# Mathspace Question Solver
+# Mathspace Question Solver (i had a little inspiration)
 
 A tool that automatically extracts math questions from Mathspace and uses Google's Gemini AI to provide detailed step-by-step solutions.
 
 ## Features
 
 - Automatic login to Mathspace
-- Detection of problem pages
-- Extraction of math questions from various page elements
-- Smart cleaning of extracted text to isolate the actual math problems
-- Removal of duplicate questions
-- Sending questions to Gemini AI for detailed solutions
-- Prevention of duplicate API calls for the same problem
+- Extraction of math questions from too many page elements
+- Cleans extracted text to get the actual math problem
+- Sending questions to Gemini AI because I don't want to do math
 
 ## Prerequisites
 
-- Node.js (v14 or higher)
-- npm or yarn
+- Node.js
+- npm
 - Google Gemini API key
 
 ## Installation
@@ -73,8 +70,8 @@ npm start
    - Launch a browser window
    - Log in to Mathspace with your credentials
    - Wait for you to navigate to a problem page
-   - Automatically extract the math questions
-   - Send them to Gemini AI for solutions
+   - Automatically extract the math question
+   - Send them to Gemini AI for solution
    - Display the solutions in the console
 
 3. Navigate to any problem page in Mathspace, and the tool will automatically extract and solve the problems.
@@ -82,16 +79,13 @@ npm start
 ## How It Works
 
 1. **Login**: The tool logs into your Mathspace account
-2. **Navigation Detection**: Listens for navigation to problem pages
-3. **Question Extraction**: Extracts potential questions from the page and iframes
-4. **Text Cleaning**: Removes promotional content, UI elements, and formatting
-5. **Deduplication**: Removes duplicate questions
-6. **API Call**: Sends cleaned questions to Gemini AI
-7. **Solution Display**: Shows the step-by-step solutions
+2. **Question Extraction**: Extracts potential questions from the page and iframe
+3. **API Call**: Sends cleaned questions to Gemini AI
+4. **Solutions**: Shows the step by step solution
 
 ## Dependencies
 
-- puppeteer: For browser automation
+- puppeteer: For browser platofrm
 - node-fetch: For making API calls to Gemini
 
 ## License
