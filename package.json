@@ -1,0 +1,14 @@
+{
+  "name": "puppeteer-mathspace",
+  "version": "1.0.0",
+  "description": "A Puppeteer application to automate login to Mathspace.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "puppeteer": "^20.9.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
