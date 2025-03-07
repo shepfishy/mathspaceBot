@@ -88,5 +88,9 @@ npm start
 - puppeteer: For browser platofrm
 - node-fetch: For making API calls to Gemini
 
+## Demonstration
+
+<video src='output.mkv' width=250/>
+
 ## License
 idfk go away
