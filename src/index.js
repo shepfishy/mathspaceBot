@@ -4,11 +4,11 @@ const fetch = require('node-fetch');
 // Configuration
 const config = {
   credentials: {
-    username: 'aruann',
-    password: '6457Backup'
+    username: 'YOUR_MATHSPACE_USERNAME',
+    password: 'YOUR_MATHSPACE_PASSWORD'
   },
   gemini: {
-    apiKey: 'AIzaSyA89ILEaCh_4MHRTsnqndrbNy2fXR1suqM', // Replace with your actual API key
+    apiKey: 'YOUR_GEMINI_API_KEY',
     model: 'gemini-2.0-flash',
     promptTemplate: `I need help solving these math problems. Please provide detailed step-by-step solutions. Do not use any text formatting, for instance you can use superscript characters to avoid generating <sup></sup>. Additionally, please answer all questions and subquestions i.e. 1a, and 1b.:
 
