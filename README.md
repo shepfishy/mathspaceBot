@@ -12,8 +12,7 @@ A tool that automatically extracts math questions from Mathspace and uses Google
 
 ## Prerequisites
 
-- Node.js
-- npm
+- Python 3.11 or 3.12 and Pip
 - Google Gemini API key
 
 ## Installation
@@ -26,43 +25,17 @@ cd puppeteer-mathspace
 
 2. Install dependencies
 ```bash
-npm install
+py -3.12 -m pip install -r requirements.txt
+py -3.12 -m playwright install
 ```
 
-3. Configure your credentials and Gemini API key in `index.js`
-
-## Configuration
-
-Edit the configuration section in `index.js`:
-
-```javascript
-const config = {
-  credentials: {
-    username: 'YOUR_MATHSPACE_USERNAME',
-    password: 'YOUR_MATHSPACE_PASSWORD'
-  },
-  gemini: {
-    apiKey: 'YOUR_GEMINI_API_KEY',
-    model: 'gemini-2.0-flash',
-    promptTemplate: `I need help solving these math problems. Please provide detailed step-by-step solutions. Do not use any text formatting, for instance you can use superscript characters to avoid generating <sup></sup>. Additionally, please answer all questions and subquestions i.e. 1a, and 1b.:
-
-{{QUESTIONS}}
-
-Make sure to show all your work and explain the steps clearly.`
-  },
-  extractionDelay: 5000 // Wait time after navigation in ms
-};
-```
+3. Create a .env file using the .env.example file and set your credentials and API Key
 
 ## Usage
 
 1. Start the application:
 ```bash
-node index.js
-```
-or (if you're using npm)
-```bash
-npm start
+py -3.12 main.py
 ```
 
 
@@ -82,11 +55,6 @@ npm start
 2. **Question Extraction**: Extracts potential questions from the page and iframe
 3. **API Call**: Sends cleaned questions to Gemini AI
 4. **Solutions**: Shows the step by step solution
-
-## Dependencies
-
-- puppeteer: For browser platofrm
-- node-fetch: For making API calls to Gemini
 
 ## Demonstration
 ``` output.mkv ```
