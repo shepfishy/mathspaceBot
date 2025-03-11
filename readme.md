@@ -22,8 +22,8 @@ A Python automation tool that extracts math problems from Mathspace and solves t
 1. Clone this repository or download the code:
 
    ```
-   git clone https://github.com/yourusername/mathspace-bot.git 
-   cd mathspace-bot
+   git clone https://github.com/shepfishy/puppeteer-mathspace.git
+   cd puppeteer-mathspace
    ```
 
 2. Install the required Python packages:
