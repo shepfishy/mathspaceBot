@@ -93,4 +93,4 @@ npm start
 <video src='output.mkv' width=250/>
 
 ## License
-idfk go away
+This project is for educational purposes only. Use responsibly and in accordance with Mathspace's terms of service.
