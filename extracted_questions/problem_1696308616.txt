@@ -1,0 +1,46 @@
+Problem ID: 1696308616
+URL: https://mathspace.co/work/subtopic-recommendation/AdaptiveWorkout-67187224/Problem-1696308616?state=problem
+==================================================
+
+QUESTION:
+The points A (−2,2), B (−2,−3) and C (−14,−3) are the vertices of a right-angled triangle, as shown on the number plane.
+
+1) Find the length of AB.
+
+SOLUTION:
+Okay, I'm ready to solve the problem. Here's a step-by-step solution to find the length of AB:
+
+**1. Understand the Problem**
+
+We are given the coordinates of two points, A and B, and we need to find the distance between them, which represents the length of the line segment AB.
+
+**2. Recall the Distance Formula**
+
+The distance between two points (x1, y1) and (x2, y2) in a coordinate plane is given by the distance formula:
+
+Distance = √((x2 - x1)² + (y2 - y1)²)
+
+**3. Identify the Coordinates**
+
+*   Point A: (-2, 2)  So, x1 = -2 and y1 = 2
+*   Point B: (-2, -3) So, x2 = -2 and y2 = -3
+
+**4. Substitute the Values into the Distance Formula**
+
+Distance AB = √((-2 - (-2))² + (-3 - 2)²)
+
+**5. Simplify the Expression**
+
+Distance AB = √((0)² + (-5)²)
+Distance AB = √(0 + 25)
+Distance AB = √25
+
+**6. Calculate the Square Root**
+
+Distance AB = 5
+
+**7. State the Answer**
+
+The length of AB is 5 units.
+
+**Final Answer:** The length of AB is $\boxed{5}$.

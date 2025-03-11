@@ -1,0 +1,61 @@
+Problem ID: 1695589474
+URL: https://mathspace.co/work/subtopic-recommendation/AdaptiveWorkout-67187224/Problem-1695589474?state=problem
+==================================================
+
+QUESTION:
+The points P (−6,5), Q (−6,2) and R (−10,2) are the vertices of a right-angled triangle, as shown on the number plane.
+
+1) Find the length of interval PQ.
+
+2) Find the length of interval QR.
+
+3) If the length of PR is denoted by c, use Pythagoras’ theorem to find the exact value of c.
+
+SOLUTION:
+Okay, I will solve this problem step-by-step, showing all my work and explaining the reasoning behind each step.
+
+**1) Find the length of interval PQ.**
+
+*   **Understanding the Distance Formula:** The distance between two points (x1, y1) and (x2, y2) in a coordinate plane is given by the distance formula:
+    √((x2 - x1)² + (y2 - y1)²)
+
+*   **Applying the Formula to PQ:**
+    *   P = (-6, 5)  =>  x1 = -6, y1 = 5
+    *   Q = (-6, 2)  =>  x2 = -6, y2 = 2
+
+    PQ = √((-6 - (-6))² + (2 - 5)²)
+    PQ = √((0)² + (-3)²)
+    PQ = √(0 + 9)
+    PQ = √9
+    PQ = 3
+
+*   **Answer:** The length of interval PQ is 3 units.
+
+**2) Find the length of interval QR.**
+
+*   **Applying the Distance Formula to QR:**
+    *   Q = (-6, 2)  =>  x1 = -6, y1 = 2
+    *   R = (-10, 2) =>  x2 = -10, y2 = 2
+
+    QR = √((-10 - (-6))² + (2 - 2)²)
+    QR = √((-4)² + (0)²)
+    QR = √(16 + 0)
+    QR = √16
+    QR = 4
+
+*   **Answer:** The length of interval QR is 4 units.
+
+**3) If the length of PR is denoted by c, use Pythagoras’ theorem to find the exact value of c.**
+
+*   **Understanding Pythagoras' Theorem:** In a right-angled triangle, the square of the length of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the lengths of the other two sides.  In this case, PR is the hypotenuse (length c), and PQ and QR are the other two sides. So, c² = PQ² + QR².
+
+*   **Applying Pythagoras' Theorem:**
+    *   We know PQ = 3 and QR = 4.
+    *   Therefore, c² = 3² + 4²
+    *   c² = 9 + 16
+    *   c² = 25
+    *   c = √25
+    *   c = 5
+
+*   **Answer:** The exact value of c (the length of PR) is 5 units.
+
