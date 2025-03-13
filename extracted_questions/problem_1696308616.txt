@@ -7,40 +7,75 @@ The points A (−2,2), B (−2,−3) and C (−14,−3) are the vertices of a ri
 
 1) Find the length of AB.
 
+2) Find the length of BC.
+
+3) If the length of AC is denoted by c, use Pythagoras’ theorem to find the exact value of c.
+
 SOLUTION:
-Okay, I'm ready to solve the problem. Here's a step-by-step solution to find the length of AB:
+Okay, I will solve the problem step-by-step, showing all work and explaining the reasoning.
 
-**1. Understand the Problem**
+**1) Find the length of AB.**
 
-We are given the coordinates of two points, A and B, and we need to find the distance between them, which represents the length of the line segment AB.
+*   **Understanding the Distance Formula:** The distance between two points (x1, y1) and (x2, y2) in a coordinate plane is given by the distance formula:
+    ```
+    distance = √((x2 - x1)² + (y2 - y1)²)
+    ```
 
-**2. Recall the Distance Formula**
+*   **Applying the Formula to Points A and B:**
+    *   A = (-2, 2)  => x1 = -2, y1 = 2
+    *   B = (-2, -3) => x2 = -2, y2 = -3
 
-The distance between two points (x1, y1) and (x2, y2) in a coordinate plane is given by the distance formula:
+    Substitute these values into the distance formula:
+    ```
+    AB = √((-2 - (-2))² + (-3 - 2)²)
+    AB = √((0)² + (-5)²)
+    AB = √(0 + 25)
+    AB = √25
+    AB = 5
+    ```
 
-Distance = √((x2 - x1)² + (y2 - y1)²)
+*   **Answer:** The length of AB is 5 units.
 
-**3. Identify the Coordinates**
+**2) Find the length of BC.**
 
-*   Point A: (-2, 2)  So, x1 = -2 and y1 = 2
-*   Point B: (-2, -3) So, x2 = -2 and y2 = -3
+*   **Applying the Distance Formula to Points B and C:**
+    *   B = (-2, -3) => x1 = -2, y1 = -3
+    *   C = (-14, -3) => x2 = -14, y2 = -3
 
-**4. Substitute the Values into the Distance Formula**
+    Substitute these values into the distance formula:
+    ```
+    BC = √((-14 - (-2))² + (-3 - (-3))²)
+    BC = √((-12)² + (0)²)
+    BC = √(144 + 0)
+    BC = √144
+    BC = 12
+    ```
 
-Distance AB = √((-2 - (-2))² + (-3 - 2)²)
+*   **Answer:** The length of BC is 12 units.
 
-**5. Simplify the Expression**
+**3) Find the exact value of c, where c is the length of AC, using Pythagoras' theorem.**
 
-Distance AB = √((0)² + (-5)²)
-Distance AB = √(0 + 25)
-Distance AB = √25
+*   **Understanding Pythagoras' Theorem:** In a right-angled triangle, the square of the length of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the lengths of the other two sides.  In this case, since we are given that ABC is a right-angled triangle, and we have calculated AB and BC, we can find AC (denoted by 'c') using Pythagoras' theorem.  Since A=(-2,2), B=(-2,-3) and C=(-14,-3), the right angle is at B. Therefore, AC is the hypotenuse.
 
-**6. Calculate the Square Root**
+    The theorem can be written as:
+    ```
+    c² = AB² + BC²
+    ```
 
-Distance AB = 5
+*   **Applying Pythagoras' Theorem:**
+    We know AB = 5 and BC = 12.  Substitute these values into the equation:
+    ```
+    c² = 5² + 12²
+    c² = 25 + 144
+    c² = 169
+    ```
 
-**7. State the Answer**
+*   **Solving for c:**
+    To find the value of c, take the square root of both sides of the equation:
+    ```
+    c = √169
+    c = 13
+    ```
 
-The length of AB is 5 units.
+*   **Answer:** The exact value of c (the length of AC) is 13 units.
 
-**Final Answer:** The length of AB is $\boxed{5}$.

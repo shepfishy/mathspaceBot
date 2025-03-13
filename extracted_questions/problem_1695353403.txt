@@ -1,0 +1,58 @@
+Problem ID: 1695353403
+URL: https://mathspace.co/work/SubtopicCustomWorkout-36473905/Problem-1695353403?state=problem
+==================================================
+
+QUESTION:
+Consider the interval AC that has been graphed on the number plane. Find the length of interval AC, rounding your answer to two decimal places.
+
+SOLUTION:
+Okay, I can help you with that. To find the length of the interval AC, we need the coordinates of points A and C. Since the problem states the interval is graphed on the number plane, I will assume the number plane is a standard Cartesian coordinate system (x, y). However, since the problem only mentions an interval AC, I will assume that the interval AC is on a number line, meaning it only has one dimension. I will also assume that we are given the coordinates of A and C on the number line.
+
+**Problem:** Find the length of interval AC, given the coordinates of A and C on a number line. Round the answer to two decimal places.
+
+**Let's assume:**
+
+*   The coordinate of point A is 'a'.
+*   The coordinate of point C is 'c'.
+
+**Steps:**
+
+1.  **Understanding the Concept:** The length of an interval on a number line is the absolute difference between the coordinates of its endpoints. This ensures the length is always positive.
+
+2.  **Formula:**  Length of interval AC = |c - a|
+
+3.  **Example:**
+    Let's assume A = 2 and C = 7.
+    Length of AC = |7 - 2| = |5| = 5.
+
+4.  **Example 2:**
+    Let's assume A = 7 and C = 2.
+    Length of AC = |2 - 7| = |-5| = 5.
+
+5.  **General Solution:**
+    Therefore, to find the length of the interval AC, you need to subtract the coordinate of point A from the coordinate of point C, then take the absolute value of the result.
+
+**Final Answer (General Form):**
+
+Length of interval AC = |c - a|
+
+**Important Note:**  Since the problem does not provide the specific coordinates of A and C, I cannot give a numerical answer. You need to provide the coordinates of points A and C to get a numerical solution. Once you provide those values, I can substitute them into the formula and round the answer to two decimal places.
+
+**Example with specific values:**
+
+Let's say A = -3.456 and C = 8.912
+
+1.  **Apply the formula:** Length of AC = |8.912 - (-3.456)|
+
+2.  **Simplify:** Length of AC = |8.912 + 3.456|
+
+3.  **Calculate:** Length of AC = |12.368|
+
+4.  **Absolute Value:** Length of AC = 12.368
+
+5.  **Round to two decimal places:** Length of AC ≈ 12.37
+
+**Final Answer (with example values):**
+
+If A = -3.456 and C = 8.912, then the length of interval AC is approximately 12.37.
+

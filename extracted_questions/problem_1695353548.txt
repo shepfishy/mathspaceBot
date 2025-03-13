@@ -1,0 +1,47 @@
+Problem ID: 1695353548
+URL: https://mathspace.co/work/SubtopicCustomWorkout-36473905/Problem-1695353548
+==================================================
+
+QUESTION:
+How far is the given point P (−5,12) from the origin?
+
+SOLUTION:
+Okay, I can help with that. We want to find the distance between the point P(-5, 12) and the origin (0, 0). We can use the distance formula for this.
+
+**1. Recall the Distance Formula**
+
+The distance between two points (x1, y1) and (x2, y2) in a Cartesian plane is given by:
+
+d = √((x2 - x1)² + (y2 - y1)²)
+
+**2. Identify the Coordinates**
+
+*   Point P: (x1, y1) = (-5, 12)
+*   Origin: (x2, y2) = (0, 0)
+
+**3. Substitute the Coordinates into the Distance Formula**
+
+d = √((0 - (-5))² + (0 - 12)²)
+
+**4. Simplify the Expression Inside the Parentheses**
+
+d = √((0 + 5)² + (-12)²)
+
+d = √(5² + (-12)²)
+
+**5. Calculate the Squares**
+
+d = √(25 + 144)
+
+**6. Add the Numbers Under the Square Root**
+
+d = √169
+
+**7. Calculate the Square Root**
+
+d = 13
+
+**Answer:**
+
+The distance between the point P(-5, 12) and the origin is 13 units.
+

@@ -10,6 +10,10 @@ import re
 import os
 import requests
 import google.generativeai as genai
+import tkinter as tk
+from tkinter import scrolledtext
+import threading
+import queue
 
 # Default credentials
 DEFAULT_CREDENTIALS = {
@@ -36,12 +40,13 @@ Give your solution in a clear, structured format.
 # Initialize Gemini API
 genai.configure(api_key=GEMINI_API_KEY)
 
-def process_with_gemini(question_text):
+def process_with_gemini(question_text, problem_id=None):
     """
     Send the extracted math question to Google Gemini API directly and get a detailed solution
     
     Args:
         question_text (str): The math question to solve
+        problem_id (str): The ID of the problem being solved
     
     Returns:
         str: The solution provided by Gemini
@@ -92,19 +97,38 @@ def process_with_gemini(question_text):
                 print("=" * 60)
                 print(solution_text)
                 print("=" * 60)
+                
+                # Use the queue for thread-safe communication
+                message_queue.put((solution_text, problem_id))
+                    
                 return solution_text
             else:
+                error_msg = "No solution available - API returned unexpected structure"
                 print("Error: Unexpected response structure from Gemini API")
                 print(f"Response: {result}")
-                return "No solution available - API returned unexpected structure"
+                
+                # Use the queue for thread-safe communication
+                message_queue.put((error_msg, problem_id))
+                    
+                return error_msg
         else:
-            print(f"Error: API returned status code {response.status_code}")
+            error_msg = f"Error: API returned status code {response.status_code}"
+            print(error_msg)
             print(f"Response: {response.text}")
-            return f"Error: API returned status code {response.status_code}"
+            
+            # Use the queue for thread-safe communication
+            message_queue.put((error_msg, problem_id))
+                
+            return error_msg
             
     except Exception as e:
+        error_msg = f"Error: {str(e)}"
         print(f"Error processing with Gemini: {e}")
-        return f"Error: {str(e)}"
+        
+        # Use the queue for thread-safe communication
+        message_queue.put((error_msg, problem_id))
+            
+        return error_msg
 
 def login(driver, credentials=None):
     """
@@ -528,7 +552,7 @@ def process_current_page(driver):
         return None, None, problem_id
     
     # Process with Gemini
-    solution = process_with_gemini(questions[0])
+    solution = process_with_gemini(questions[0], problem_id)
     
     # Save questions and solution to file
     save_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "extracted_questions")
@@ -574,11 +598,81 @@ def open_mathspace(credentials=None):
     
     return driver
 
+# Create a global message queue for thread-safe communication
+message_queue = queue.Queue()
+
+class ResponseWindow:
+    def __init__(self):
+        self.root = tk.Tk()
+        self.root.title("Gemini Solutions")
+        self.root.geometry("400x300")
+        self.root.attributes('-topmost', True)
+        
+        # Position in bottom right corner
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+        x_coordinate = screen_width - 410
+        y_coordinate = screen_height - 350
+        self.root.geometry(f"+{x_coordinate}+{y_coordinate}")
+        
+        # Add a label
+        self.header = tk.Label(self.root, text="Latest Gemini Solution", font=("Arial", 12, "bold"))
+        self.header.pack(pady=5)
+        
+        # Add problem label
+        self.problem_label = tk.Label(self.root, text="Problem: None", font=("Arial", 10))
+        self.problem_label.pack(anchor="w", padx=10)
+        
+        # Add scrollable text area
+        self.text_area = scrolledtext.ScrolledText(self.root, width=45, height=15, wrap=tk.WORD)
+        self.text_area.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
+        
+        # Configure tags for formatting
+        self.text_area.tag_configure("title", font=("Arial", 10, "bold"))
+        self.text_area.tag_configure("content", font=("Arial", 9))
+        
+        # Set initial text
+        self.set_text("No solutions yet. Navigate to a problem page to get started.")
+        
+        # Set up periodic checking of the message queue
+        self.check_queue()
+    
+    def set_text(self, text, problem_id=None):
+        """Update the text in the window"""
+        self.text_area.config(state=tk.NORMAL)
+        self.text_area.delete(1.0, tk.END)
+        self.text_area.insert(tk.END, text, "content")
+        self.text_area.config(state=tk.DISABLED)
+        
+        # Update problem ID if provided
+        if problem_id:
+            self.problem_label.config(text=f"Problem ID: {problem_id}")
+    
+    def check_queue(self):
+        """Check the message queue for updates from other threads"""
+        try:
+            while not message_queue.empty():
+                message = message_queue.get_nowait()
+                if message and len(message) == 2:  # Expected format: (solution_text, problem_id)
+                    self.set_text(message[0], message[1])
+        except:
+            pass  # Ignore any issues with queue
+            
+        # Schedule the next check
+        self.root.after(100, self.check_queue)  # Check every 100ms
+    
+    def run(self):
+        """Run the Tkinter main loop"""
+        self.root.mainloop()
+
 if __name__ == "__main__":
     driver = None
     try:
         # Import keyboard library for global hotkeys
         import keyboard
+        
+        # Create the response window
+        response_window = ResponseWindow()
         
         # Simply warn about the API key but proceed anyway
         if GEMINI_API_KEY == "AIzaSyA89ILEaCh_4MHRTsnqndrbNy2fXR1suqM":
@@ -592,7 +686,6 @@ if __name__ == "__main__":
         print("  Ctrl+Alt+Q: Quit the application")
         
         # Start monitoring for problem pages in a separate thread
-        import threading
         monitor_thread = threading.Thread(target=monitor_navigation, args=(driver,), daemon=True)
         monitor_thread.start()
         
@@ -612,9 +705,9 @@ if __name__ == "__main__":
         keyboard.add_hotkey('ctrl+alt+r', reprocess_page)
         keyboard.add_hotkey('ctrl+alt+q', quit_app)
         
-        # Keep the main thread alive
+        # Run the Tkinter main loop in the main thread
         print("\nBot is running. Use keyboard shortcuts to control.")
-        keyboard.wait('ctrl+alt+q')
+        response_window.run()
             
     except Exception as e:
         print(f"An error occurred: {e}")

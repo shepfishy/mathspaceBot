@@ -1,0 +1,47 @@
+Problem ID: 1695353576
+URL: https://mathspace.co/work/SubtopicCustomWorkout-36473905/Problem-1695353576
+==================================================
+
+QUESTION:
+How far is the given point P (11,7) from the origin? Round your answer to two decimal places.
+
+SOLUTION:
+Okay, I can help with that! Here's the step-by-step solution to finding the distance between the point P(11, 7) and the origin (0, 0), rounded to two decimal places.
+
+**1. Understanding the Problem**
+
+We need to find the distance between two points in a coordinate plane. The origin is the point (0, 0), and we are given the point P(11, 7). We can use the distance formula to solve this.
+
+**2. The Distance Formula**
+
+The distance *d* between two points (x₁, y₁) and (x₂, y₂) in a coordinate plane is given by:
+
+d = √((x₂ - x₁)² + (y₂ - y₁)²)
+
+**3. Applying the Formula**
+
+*   Let (x₁, y₁) be the origin (0, 0).
+*   Let (x₂, y₂) be the point P (11, 7).
+
+Substitute these values into the distance formula:
+
+d = √((11 - 0)² + (7 - 0)²)
+
+**4. Simplifying the Expression**
+
+d = √((11)² + (7)²)
+d = √(121 + 49)
+d = √(170)
+
+**5. Calculating the Square Root**
+
+d ≈ 13.0384
+
+**6. Rounding to Two Decimal Places**
+
+Rounding 13.0384 to two decimal places gives us 13.04.
+
+**Answer:**
+
+The distance between the point P(11, 7) and the origin is approximately 13.04 units.
+
