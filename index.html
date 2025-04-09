@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathspace Bot - AI-Powered Math Problem Solver</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #4fc08d;
+            --light: #f5f5f5;
+            --dark: #333;
+            --code-bg: #282c34;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--secondary);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background-color: var(--accent);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        code {
+            background-color: var(--code-bg);
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            display: block;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+        
+        .shortcuts {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .shortcuts th, .shortcuts td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .shortcuts th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .shortcuts tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .demo-img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features, .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Mathspace Bot</h1>
+            <p>Automate your math homework with AI-powered solutions that extract problems from Mathspace and solve them step-by-step using Google's Gemini AI.</p>
+            <a href="https://github.com/shepfishy/puppeteer-mathspace" class="btn"><i class="fab fa-github"></i> View on GitHub</a>
+            <a href="#get-started" class="btn"><i class="fas fa-download"></i> Download & Setup</a>
+        </div>
+    </header>
+    
+    <section id="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Automatic Problem Detection</h3>
+                    <p>Monitors Mathspace navigation and detects when you visit a problem page, no manual input required.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI-Powered Solutions</h3>
+                    <p>Leverages Google's Gemini AI to generate detailed, step-by-step solutions to math problems.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Smart Extraction</h3>
+                    <p>Extracts both problem headers and subproblems from various Mathspace page structures.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-save"></i>
+                    <h3>Problem Saving</h3>
+                    <p>Automatically saves questions and solutions to text files for later review and reference.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-keyboard"></i>
+                    <h3>Keyboard Shortcuts</h3>
+                    <p>Control the bot using convenient keyboard combinations for efficiency.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-sync"></i>
+                    <h3>Fully Automated</h3>
+                    <p>Set it up once and the bot handles the rest, streamlining your workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3>Detection</h3>
+                        <p>The bot monitors your browser and automatically detects when you navigate to a Mathspace problem.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3>Extraction</h3>
+                        <p>Problem text, equations, and images are extracted from the Mathspace page.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3>AI Processing</h3>
+                        <p>The extracted problem is sent to Google's Gemini AI, which formulates a comprehensive solution.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h3>Saving Results</h3>
+                        <p>The question and solution are saved to a text file for your reference and study purposes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="get-started">
+        <div class="container">
+            <h2>Get Started</h2>
+            <h3>Prerequisites</h3>
+            <ul>
+                <li>Python 3.12.2</li>
+                <li>Google Chrome browser</li>
+                <li>A Gemini API key (get one from <a href="https://aistudio.google.com/apikey">Google AI Studio</a>)</li>
+                <li>Administrator privileges (required for keyboard shortcuts)</li>
+            </ul>
+            
+            <h3>Installation</h3>
+            <p>1. Clone the repository or download the code:</p>
+            <code>git clone https://github.com/shepfishy/puppeteer-mathspace.git<br>cd puppeteer-mathspace</code>
+            
+            <p>2. Install the required Python packages:</p>
+            <code>pip install -r requirements.txt</code>
+            
+            <p>3. Run the bot:</p>
+            <code># Linux<br>python webmath.py<br><br># Windows<br>py webmath.py</code>
+            
+            <h3>Usage</h3>
+            <p>Once running, navigate to any math problem on Mathspace. The bot will automatically extract the question, solve it, and save the results.</p>
+            
+            <h3>Keyboard Shortcuts</h3>
+            <table class="shortcuts">
+                <tr>
+                    <th>Shortcut</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td><code>Ctrl+Alt+R</code></td>
+                    <td>Re-process the current page</td>
+                </tr>
+                <tr>
+                    <td><code>Ctrl+Alt+Q</code></td>
+                    <td>Quit the application</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    
+    <section id="troubleshooting">
+        <div class="container">
+            <h2>Troubleshooting</h2>
+            <div class="feature-card">
+                <h3>Permission Denied Errors</h3>
+                <p>Try running the script as administrator, especially if keyboard shortcuts aren't working.</p>
+            </div>
+            <div class="feature-card">
+                <h3>API Key Issues</h3>
+                <p>If you get API errors, check that your Gemini API key is valid and properly configured.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Element Not Found Errors</h3>
+                <p>Mathspace's HTML structure may change. If extraction fails, try updating the CSS selectors in the code.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Chrome Driver Issues</h3>
+                <p>If Chrome doesn't open, ensure you have the latest version of Chrome installed.</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>Mathspace Bot is for educational purposes only. Use responsibly and in accordance with Mathspace's terms of service.</p>
+            <p>&copy; 2023 | <a href="https://github.com/shepfishy/puppeteer-mathspace" style="color: var(--accent);">GitHub Repository</a></p>
+        </div>
+    </footer>
+</body>
+</html>
